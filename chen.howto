@@ -1,0 +1,69 @@
+# convert this file to MD format
+
+
+
+# server (http://localhost:5002)
+$ tts-server
+$ tts-server --model_name tts_models/en/ljspeech/glow-tts
+
+
+# TTS (no server)
+tts --text "Fission allows you to code serverless functions in any language" --out_path ./chen.wav
+
+
+
+# list
+tts --list_models > tts-models-chen
+
+
+#local models (macOS)
+/Users/chenchuk/Library/Application Support/tts
+
+
+
+
+finetuning: https://docs.coqui.ai/en/latest/finetuning.html
+
+
+# MAC
+RESTORE_PATH="/Users/chenchuk/Library/Application Support/tts/tts_models--en--ljspeech--tacotron2-DDC/model_file.pth"
+CONFIG_PATH="/Users/chenchuk/Library/Application Support/tts/tts_models--en--ljspeech--tacotron2-DDC/config.json"
+
+# UBUNTU
+RESTORE_PATH="/root/.local/share/tts/tts_models--en--ljspeech--tacotron2-DDC/model_file.pth"
+CONFIG_PATH="/root/.local/share/tts/tts_models--en--ljspeech--tacotron2-DDC/config.json"
+
+CUDA_VISIBLE_DEVICES="0"
+python TTS/bin/train_tts.py \
+    --config_path ${CONFIG_PATH} \
+    --restore_path ${RESTORE_PATH}
+
+
+A4000:
+
+# setup a virtual environment
+python -m venv venv
+
+# activate the virtual environment
+source venv/bin/activate
+
+# install the required packages
+pip install -r requirements.txt
+
+pip install TTS
+
+
+# install the required packages
+CUDA_VISIBLE_DEVICES="0"
+
+# execute the training script
+python recipes/ljspeech/glow_tts/train_glowtts.py
+
+
+#pip install numpy torch torchaudio librosa matplotlib tensorboardX unidecode inflect scipy numba
+
+
+python TTS/bin/train_tts.py \
+    --config_path /home/chenchuk/.local/share/tts/tts_models--en--ljspeech--tacotron2-DDC/config.json \
+    --restore_path /home/chenchuk/.local/share/tts/tts_models--en--ljspeech--tacotron2-DDC/model_file.pth
+
