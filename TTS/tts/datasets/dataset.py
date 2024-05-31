@@ -356,6 +356,10 @@ class TTSDataset(Dataset):
         """
         samples = self._compute_lengths(self.samples)
 
+        print('chen')
+        print(len(samples))
+        print('chen')
+
         # sort items based on the sequence length in ascending order
         text_lengths = [i["text_length"] for i in samples]
         audio_lengths = [i["audio_length"] for i in samples]
