@@ -311,6 +311,14 @@ class BaseTTS(BaseTrainerModel):
             else:
                 language_id_mapping = None
 
+
+            # print samples
+            print("chen: samples info:")
+            for idx, sample in enumerate(samples):
+                print(f"  {idx}: {sample}")
+            print("chen: samples info end")
+
+
             # init dataloader
             dataset = TTSDataset(
                 outputs_per_step=config.r if "r" in config else 1,
