@@ -21,7 +21,16 @@
 python -m pip install --upgrade pip
 pip install -r requirements.txt
 apt update && apt install -y tree vim
+pip install TTS
+pip install --ignore-installed blinker
+pip install TTS
 
 #source venv/bin/activate
-python recipes/ljspeech/glow_tts/train_glowtts.py
+
+
 export CUDA_VISIBLE_DEVICES="0"
+export RESTORE_PATH="/workspace/tts_models--en--ljspeech--glow-tts/model_file.pth"
+
+python recipes/ljspeech/glow_tts/train_glowtts.py --restore_path=$RESTORE_PATH
+
+
