@@ -290,6 +290,13 @@ class BaseTTS(BaseTrainerModel):
         if is_eval and not config.run_eval:
             loader = None
         else:
+            # print samples
+            print("chen: samples info:")
+            for idx, sample in enumerate(samples):
+                print(f"  {idx}: {sample}")
+            print("chen: samples info end")
+
+
             # setup multi-speaker attributes
             if self.speaker_manager is not None:
                 if hasattr(config, "model_args"):
@@ -312,11 +319,6 @@ class BaseTTS(BaseTrainerModel):
                 language_id_mapping = None
 
 
-            # print samples
-            print("chen: samples info:")
-            for idx, sample in enumerate(samples):
-                print(f"  {idx}: {sample}")
-            print("chen: samples info end")
 
 
             # init dataloader
