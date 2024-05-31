@@ -342,6 +342,11 @@ class BaseTTS(BaseTrainerModel):
             if num_gpus > 1:
                 dist.barrier()
 
+            # print dataset info
+            print("chen: dataset info:")
+            dataset.print_info()
+
+
             # sort input sequences from short to long
             dataset.preprocess_samples()
 
