@@ -60,6 +60,8 @@ config = GlowTTSConfig(
     mixed_precision=True,
     output_path=output_path,
     datasets=[dataset_config],
+    sample_rate=16000,
+
 )
 
 # INITIALIZE THE AUDIO PROCESSOR
