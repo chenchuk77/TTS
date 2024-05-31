@@ -40,6 +40,10 @@ dataset_config = BaseDatasetConfig(
 # INITIALIZE THE TRAINING CONFIGURATION
 # Configure the model. Every config class inherits the BaseTTSConfig.
 config = GlowTTSConfig(
+
+    # chen 68 audio files
+    # https://github.com/coqui-ai/TTS/discussions/2487
+    eval_split_size=68,
     batch_size=32,
     eval_batch_size=16,
     num_loader_workers=4,

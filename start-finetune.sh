@@ -17,3 +17,7 @@
 
 
 ##### start finetuning
+
+
+source venv/bin/activate
+python recipes/ljspeech/glow_tts/train_glowtts.py
