@@ -75,7 +75,7 @@ config = GlowTTSConfig(
     mixed_precision=True,
     output_path=output_path,
     datasets=[dataset_config],
-    sample_rate=16000,
+    # sample_rate=16000,
     audio=audio_config,
 
 )
