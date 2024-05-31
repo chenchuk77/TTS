@@ -28,13 +28,26 @@ print("chen")
 # /Users/chenchuk/dev/TTS/recipes/ljspeech/glow_tts/../../../datasets/aed0819774235bb86251b7d72d335218/
 
 
+# chen
+
+audio_config = {
+    'sample_rate': 16000,
+    'num_mels': 80,  # Example parameter, adjust according to your needs
+    'mel_fmin': 0.0,
+    'mel_fmax': 8000.0,  # Half of the sample rate, adjust based on your audio characteristics
+}
+
+
+
+
 dataset_path = os.path.join(output_path, "../../../datasets/aed0819774235bb86251b7d72d335218")
 print(f"Dataset path: {dataset_path}")
 dataset_config = BaseDatasetConfig(
     formatter="ljspeech",
     meta_file_train="metadata.txt",
     path=dataset_path,
-    # formatter = "ljspeech", meta_file_train = "metadata.csv", path = os.path.join(output_path, "../LJSpeech-1.1/")
+    audio_params=audio_config,
+# formatter = "ljspeech", meta_file_train = "metadata.csv", path = os.path.join(output_path, "../LJSpeech-1.1/")
 )
 
 # INITIALIZE THE TRAINING CONFIGURATION
