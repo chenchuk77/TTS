@@ -30,6 +30,8 @@ print("chen")
 
 # chen
 
+# audio: BaseAudioConfig = field(default_factory=BaseAudioConfig)
+
 audio_config = {
     'sample_rate': 16000,
     'num_mels': 80,  # Example parameter, adjust according to your needs
@@ -43,11 +45,11 @@ audio_config = {
 dataset_path = os.path.join(output_path, "../../../datasets/aed0819774235bb86251b7d72d335218")
 print(f"Dataset path: {dataset_path}")
 dataset_config = BaseDatasetConfig(
+    dataset_name="llix",
     formatter="ljspeech",
     meta_file_train="metadata.txt",
     path=dataset_path,
-    audio_params=audio_config,
-# formatter = "ljspeech", meta_file_train = "metadata.csv", path = os.path.join(output_path, "../LJSpeech-1.1/")
+    # formatter = "ljspeech", meta_file_train = "metadata.csv", path = os.path.join(output_path, "../LJSpeech-1.1/")
 )
 
 # INITIALIZE THE TRAINING CONFIGURATION
@@ -74,6 +76,7 @@ config = GlowTTSConfig(
     output_path=output_path,
     datasets=[dataset_config],
     sample_rate=16000,
+    audio=audio_config,
 
 )
 

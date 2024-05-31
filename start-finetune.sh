@@ -18,6 +18,9 @@
 
 ##### start finetuning
 
+python -m pip install --upgrade pip
+pip install -r requirements.txt
 
-source venv/bin/activate
+#source venv/bin/activate
 python recipes/ljspeech/glow_tts/train_glowtts.py
+export CUDA_VISIBLE_DEVICES="0"
