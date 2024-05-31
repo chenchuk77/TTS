@@ -20,6 +20,7 @@
 
 python -m pip install --upgrade pip
 pip install -r requirements.txt
+apt update && apt install -y tree vim
 
 #source venv/bin/activate
 python recipes/ljspeech/glow_tts/train_glowtts.py
