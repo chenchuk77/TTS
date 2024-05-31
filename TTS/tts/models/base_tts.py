@@ -342,9 +342,11 @@ class BaseTTS(BaseTrainerModel):
             if num_gpus > 1:
                 dist.barrier()
 
-            # print dataset info
+            # print dataset object fields
             print("chen: dataset info:")
-            dataset.print_info()
+            for key, value in dataset.__dict__.items():
+                print(f"  {key}: {value}")
+            print("chen: dataset info end")
 
 
             # sort input sequences from short to long
