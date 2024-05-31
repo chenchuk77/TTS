@@ -34,6 +34,8 @@ print("chen")
 
 audio_config = {
     'sample_rate': 16000,
+    'frame_length_ms': 50,  # Example: 50 milliseconds
+    'frame_shift_ms': 12.5,  # Example: 12.5 milliseconds
     'num_mels': 80,  # Example parameter, adjust according to your needs
     'mel_fmin': 0.0,
     'mel_fmax': 8000.0,  # Half of the sample rate, adjust based on your audio characteristics
@@ -83,6 +85,8 @@ config = GlowTTSConfig(
 # INITIALIZE THE AUDIO PROCESSOR
 # Audio processor is used for feature extraction and audio I/O.
 # It mainly serves to the dataloader and the training loggers.
+
+print(config["audio"])  # Debugging statement to check what's being passed
 ap = AudioProcessor.init_from_config(config)
 
 # INITIALIZE THE TOKENIZER
